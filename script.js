@@ -1,31 +1,38 @@
 let songs=[{
-    songName:"Beautiful",filepath:"song/one.mp3",coverPath:"covers/one.jpg"},
+    songName:"Beautiful-Eminem",filepath:"songs/one.mp3",coverPath:"covers/one.jpg"},
     {
-        songName:"Beautiful",filepath:"song/two.mp3",coverPath:"covers/two.jpg"},
+        songName:"Ashes-Stellar",filepath:"songs/two.mp3",coverPath:"covers/two.jpg"},
         {
-            songName:"Beautiful",filepath:"song/three.mp3",coverPath:"covers/three.jpg"},
+            songName:"Teenage Dreams-Stephen Dawes",filepath:"songs/three.mp3",coverPath:"covers/three.jpg"},
             {
-                songName:"Beautiful",filepath:"song/four.mp3",coverPath:"covers/four.jpg"},
+                songName:"Thinking out loud-Ed sheeran",filepath:"songs/four.mp3",coverPath:"covers/four.jpg"},
                 {
-                    songName:"Beautiful",filepath:"song/five.mp3",coverPath:"covers/five.jpg"},
+                    songName:"Fool's gold-Aries",filepath:"songs/five.mp3",coverPath:"covers/five.jpg"},
                     {
-                        songName:"Beautiful",filepath:"song/six.mp3",coverPath:"covers/six.jpg"},
+                        songName:"Are you bored?yet-Wallows",filepath:"songs/six.mp3",coverPath:"covers/six.jpg"},
                         {
-                            songName:"Beautiful",filepath:"song/seven.mp3",coverPath:"covers/seven.jpg"},
+                            songName:"Bubble-night demo-Imagine Dragons",filepath:"songs/seven.mp3",coverPath:"covers/seven.jpg"},
                             {
-                                songName:"Beautiful",filepath:"song/eight.mp3",coverPath:"covers/eight.jpg"},
+                                songName:"Stressed out-twenty one pilots",filepath:"songs/eight.mp3",coverPath:"covers/eight.jpg"},
                                 {
-                                    songName:"Beautiful",filepath:"song/nine.mp3",coverPath:"covers/nine.jpg"},
+                                    songName:"Sing for the moment-Eminem",filepath:"songs/nine.mp3",coverPath:"covers/nine.jpg"},
   {
- songName:"Beautiful",filepath:"song/ten.mp3",coverPath:"covers/ten.jpg"}
+ songName:"Chlorine-twenty one pilots",filepath:"songs/ten.mp3",coverPath:"covers/ten.jpg"}
 ]
 let songIndex=0;
 let masterPlay=document.getElementById('masterPlay')
 let myProgressBar=document.getElementById('myProgressBar')
 let gif=document.getElementById('gif')
+let songItem=Array.from(document.getElementsByClassName('songItem'))
 
-let audioElement=new Audio('one.mp3')
+songItem.forEach((element,i)=>{
+    console.log(element,i)
+    element.getElementsByTagName("img")[0].src=songs[i].coverPath;
+    element.getElementsByClassName("songName")[0].innerText=songs[i].songName;
+});
+let audioElement=new Audio('songs/one.mp3')
 audioElement.play()
+
 
 masterPlay.addEventListener('click',()=>{
     if(audioElement.paused || audioElement.currentTime<=0){
